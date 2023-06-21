@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lonely Integer</title>
+</head>
+<body>
+    
+    <h1>
+        Question: <br> Given an array of integers, where all elements but one occur twice, find the unique element.<br />
+    </h1>
+    <h2>
+        Solution: <span><p>Check console for answers too and inspect script for solutions!</p></span>
+    </h2>
+
+</body>
+
+
+<script>
+
+    const a = [1, 2, 3, 4, 3, 2, 1]
+    function lonelyInteger(a) {
+        for (let i = 0; i < a.length; i++) {
+            let numberCount = 0;
+            for ( let j = 0; j < a.length; j++) {
+                if ( a[i] == a[j] ) {
+                    numberCount++;
+                }
+            }
+
+            if ( numberCount == 1 ) {
+                return a[i]
+            }
+        }
+        return 'No number occurs once'
+    }
+    lonelyInteger(a)
+    console.log(lonelyInteger(a));
+
+    const A = [1, 2, 3, 4, 3, 2, 1, 4]
+    function singleInteger(A) {
+        for (let i = 0; i < A.length; i++) {
+            let numberCount = 0;
+            for ( let j = 0; j < A.length; j++) {
+                if ( A[i] == A[j] ) {
+                    numberCount++;
+                }
+            }
+
+            if ( numberCount == 1 ) {
+                return A[i]
+            }
+        }
+        return 'No number occurs once'
+    }
+    singleInteger(A)
+    console.log(singleInteger(A));
+
+
+</script>
+</html>

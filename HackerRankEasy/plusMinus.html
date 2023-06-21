@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>
+        Welcome to front end logic<br />
+        Check Console!!!
+    </h1>
+    <div class="answers">
+        <p>
+            Fraction of positive numbers: <span class="positive"></span>
+        </p>
+        <br />
+        <br />
+        <p>
+            Fraction of negative numbers: <span class="negative"></span>
+        </p>
+        <br />
+        <br />
+        <p>
+            Fraction of zero numbers: <span class="zero"></span>
+        </p>
+    </div>
+
+
+</body>
+
+<script>
+
+    const pos = document.querySelector('.positive');
+    const neg = document.querySelector('.negative');
+    const zer = document.querySelector('.zero')
+
+    arr = [-4, 3, -9, 0, 4, 1]
+    function plusMinus(arr) {
+        let positiveNum = 0
+        let negativeNum = 0
+        let zeroNum = 0
+
+        for (let i = 0; i < arr.length; i++) {
+            if ( arr[i] == 0 ) {
+                zeroNum++;
+
+            } else if ( arr[i] > 0 ) {
+                positiveNum++;   
+
+            } else if ( arr[i] < 0 ) {
+                negativeNum++;  
+            }
+        }
+        console.log((zeroNum / arr.length).toFixed(6));
+        console.log((positiveNum / arr.length).toFixed(6));
+        console.log((negativeNum / arr.length).toFixed(6));
+
+        pos.innerHTML = ((positiveNum / arr.length).toFixed(6));
+        neg.innerHTML = ((negativeNum / arr.length).toFixed(6));
+        zer.innerHTML = ((zeroNum / arr.length).toFixed(6));
+    }
+    plusMinus(arr)
+
+
+</script>
+
+
+
+</html>

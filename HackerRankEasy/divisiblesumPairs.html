@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisible Sum Pairs</title>
+</head>
+<body>
+
+    <h1>
+        Welcome to front end logic<br />
+        Check Console!!! 
+    </h1>
+    <br />
+    <br />
+    <br />
+    <h2>
+        Sum of the array = <span class="totalOfArray"></span>
+    </h2>
+    <br />
+    <br />
+    <h2>
+        Total number of numbers in the array divisible by 3 = <span class="numberOfNumbers"></span>
+    </h2>
+
+    
+    
+</body>
+
+
+<script>
+
+    const arrayTotal = document.querySelector('.totalOfArray');
+    const numOfNums = document.querySelector('.numberOfNumbers');
+
+    let A = [ 1, 3, 2, 6, 1, 2 ]
+    let n = A.length
+    let K = 3
+    const totalOfA = A.reduce((a, b) => {
+        // to get the sum of elements in an array
+        return a + b
+    })
+    console.log('Sum of the array is: ', totalOfA);
+    arrayTotal.innerHTML = totalOfA
+
+    const sortArray = A.sort((a, b) => a - b)
+    const arraySort = A.sort((a, b) => b - a)
+    console.log(sortArray);
+    console.log(arraySort);
+
+    function divisibleSumPairs(A, n, K) {
+        let count = 0
+        
+        for (let i = 0; i < n; i++) {
+            for (let j = i + 1; j < n; j++) {
+                // to ensure that j is always greater than i i.e j > i
+                if ((A[i] + A[j]) % K == 0) {
+                    // To check if i + j is divisible by 3
+                    count++
+                    numOfNums.innerHTML = count
+                }
+            }
+        }
+        
+        return count
+    }
+    divisibleSumPairs(A, n, K)
+    console.log(divisibleSumPairs(A, n, K))
+    
+
+</script>
+
+
+</html>

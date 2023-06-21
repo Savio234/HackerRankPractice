@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>
+        Welcome to front end logic<br />
+        Check Console!!! 
+    </h1>
+    <br />
+    <br />
+    <br />
+    <h2>
+        First set of the array = <span class="totalOfArray"></span>
+    </h2>
+    <br />
+    <br />
+    <h2>
+        Second set of the array = <span class="numberOfNumbers"></span>
+    </h2>
+
+    
+</body>
+
+
+<script>
+
+    const arrayTotal = document.querySelector('.totalOfArray');
+    const numOfNums = document.querySelector('.numberOfNumbers');
+
+    const strings = ['ab', 'ab', 'ab', 'ba', 'abc', 'abc', 'bc']
+    const queries = ['ab', 'abc', 'bd']
+
+    function matchingStrings(strings, queries) {
+        let matched = []
+        for (let i = 0; i < queries.length; i++) {
+            matched[i] = 0
+            for (let j = 0; j < strings.length; j++) {
+                if (queries[i] == strings[j]) {
+                    matched[i]++
+                }
+            }
+        }
+        return matched
+    }
+    matchingStrings(strings, queries)
+    console.log(matchingStrings(strings, queries));
+    arrayTotal.innerHTML = '[ ' + matchingStrings(strings, queries) +' ]'
+
+
+    const stringList = ['ab', 'ab', 'ab', 'ba', 'abc', 'abc', 'bc', 'bd']
+    const query = ['ab', 'bd', 'abc', 'bc']
+    function mStrings(stringList, query) {
+        let appearances = {}, res = [];
+        for (let i = 0; i < stringList.length; i ++) {
+            if (!appearances[stringList[i]]) {
+                appearances[stringList[i]] = 1;
+            } else {
+                appearances[stringList[i]]++;
+            }
+        }
+        for (let i = 0; i < query.length; i++) {
+            if (appearances[query[i]]) {
+                res[i] = appearances[query[i]];
+            } else {
+                res[i] = 0;
+            }
+        }
+        return res;
+    }
+    mStrings(stringList, query)
+    console.log(mStrings(stringList, query));
+    numOfNums.innerHTML = '[ ' + mStrings(stringList, query) + ' ]'
+
+
+
+</script>
+</html>

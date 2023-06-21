@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camel Case Logic</title>
+</head>
+<body>
+    <h1>
+        Welcome to front end logic<br />
+        Check Console!!!
+    </h1>
+</body>
+
+
+<script>
+
+
+
+    let input = "C;V;mobile phone"
+    function processData(input) {
+        for (command of input.split(/\r?\n/)) {
+            const words = command.slice(command.lastIndexOf(';') + 1, command.length);
+
+            if (command.at(0) === 'S') {
+                console.log(words
+                    .split(/(?=[A-Z])/)
+                    .join(' ')
+                    .replace('()', '')
+                    .toLowerCase()
+                );
+            }
+
+            if (command.at(0) === 'C') {
+                const pascalCase = (words.split(' ').map(word => word.at(0).toUpperCase() + word.slice(1))).join('');
+
+                const cammelCase = pascalCase.at(0).toLowerCase() + pascalCase.slice(1);
+
+                if (command.at(2) === 'M') console.log(cammelCase+'()');
+                if (command.at(2) === 'C') console.log(pascalCase);
+                if (command.at(2) === 'V') console.log(cammelCase);
+            }
+        }
+        return input
+    }
+    processData(input)
+
+
+    const str = "Normal word written"
+    const word = "Try another word"
+    function camelize(str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+            return index === 0 ? word.toLowerCase() : word.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
+    camelize(str)
+    console.log(camelize(str));
+    console.log(camelize(word));
+
+    var camalize = function camalize(eliminate) {
+    return eliminate.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+    }
+
+
+
+</script>
+</html>

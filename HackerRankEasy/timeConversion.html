@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Conversion</title>
+</head>
+<body>
+    
+    <h1>
+        Welcome to front end logic<br />
+        Check Console!!!
+    </h1>
+
+
+</body>
+
+
+<script>
+
+    const s = '07:32:05 PM'
+    const t = '11:02:23 PM'
+    const convertTime = s => {
+        const [time, timeModifier] = s.split(' ')
+        let [hours, minutes, seconds] = s.split(':')
+        if( hours === '12' ) {
+            hours = '00'
+        }
+        if ( timeModifier === 'PM' ) {
+            hours = parseInt(hours, 10) + 12
+        }
+        return `${hours}:${minutes}:${seconds}`;
+    }
+    console.log(convertTime(s))
+    console.log(convertTime(t))
+
+    const g = "07:05:45 PM"
+    function englishTime(g) {
+        // Create a Date object with the input time string
+        let date = new Date(" 2023-05-31 " + g);
+        
+        // Format the date object into a 24 hour time string
+        let format = date.toLocaleTimeString([], { hour12: false });
+        
+        return format;
+    }
+    console.log(englishTime(g));
+    console.log(englishTime(s));
+    console.log(englishTime(t));
+
+    const S = "09:34:54PM"
+    function timeConversion(S) {
+        let ending = S.charAt(8).toLowerCase();
+        let min = S.charAt(3) + S.charAt(4)
+        let sec = S.charAt(6) + S.charAt(7)
+        let hour = S.charAt(0) + S.charAt(1)
+        if(ending == 'a' && hour == '12') {
+            hour = '00'
+        } else if(ending == 'p' && parseInt(hour) < 12) {
+            hour = (parseInt(hour) + 12).toString()
+        }
+        return `${hour}:${min}:${sec}`
+    }
+    timeConversion(S)
+    console.log(timeConversion(S));
+
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Records Logic</title>
+</head>
+<body>
+    
+    <h1>
+        Welcome to front end logic<br />
+        Check Console!!!
+    </h1>
+
+</body>
+
+
+<script>
+
+    const scores = [12, 24, 10, 24]
+    function smashingRecords(scores) {
+        let min = scores.at(0);
+        let max = scores.at(0);
+        let minCount = 0;
+        let maxCount = 0;
+
+        for (const score of scores.slice(1)) {
+            if (score < min) {
+                min = score;
+                minCount++;
+            }
+            if (score > max) {
+                max = score;
+                maxCount++;
+            }
+        }
+        return [maxCount, minCount];
+    }
+    smashingRecords(scores)
+    console.log(smashingRecords(scores));
+    
+    function breakingRecords(scores) {
+        // Write your code here
+        let minTime = 0;
+        let maxTime = 0;
+        
+        let minScore = 0;
+        let maxScore = 0;
+
+        scores.forEach((score, index) => {
+            if (index === 0) {
+                minScore = score;
+                maxScore = score;
+                return;
+            }
+            if (score < minScore) {
+                minTime++;
+                minScore = score;
+            }
+            if (score > maxScore) {
+                maxTime++;
+                maxScore = score;
+            }
+            
+        })
+        return [maxTime, minTime];
+        
+    }
+    breakingRecords(scores)
+    console.log(breakingRecords(scores))
+
+</script>
+</html>

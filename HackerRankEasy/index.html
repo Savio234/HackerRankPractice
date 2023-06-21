@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Tests</title>
+</head>
+<body>
+    
+    <section id="Test1">
+        <h1>
+            Welcome to front end logic. This is the first test by hackerrank<br />
+            Check Console!!!
+        </h1>
+        <br />
+        <br />
+        <h2>
+            Task: Finding the median and mode of an array<br />
+        </h2>
+        <br />
+
+        <h3>
+            The medians from the arrays are <span class="firstMedian"></span>, <span class="thirdMedian"></span> and <span class="secondMedian"></span>
+        </h3>
+        <br />
+        <h3>
+            The mean from the first array is: <span class="mean"></span>
+        </h3>
+    </section>
+
+</body>
+
+
+<script>
+
+    // TEST 1
+
+    const meanNode = document.querySelector('.mean')
+    const firstMedianNode = document.querySelector('.firstMedian')
+    const secondMedianNode = document.querySelector('.secondMedian')
+    const thirdMedianNode = document.querySelector('.thirdMedian')
+    const arr = [1, 4, 2, 6, 3, 5, 7]
+    const arrs = [1, 4, 9, 2, 6, 3, 5, 7]
+    
+    function findMean(arr) {
+        const sortArr = arr.sort((a, b) => a - b)
+        console.log(sortArr);
+
+        const sumOfArray = sortArr.reduce((a, b) => {
+            return a + b
+        })
+        console.log(sumOfArray);
+        const meanOfArray = sumOfArray / sortArr.length
+        console.log(meanOfArray);
+        meanNode.innerHTML = meanOfArray
+    }
+    findMean(arr)
+
+    const n = arrs.length
+    console.log(n);
+    function findMedian(arrs, n) {
+        const sortArr = arrs.sort((a, b) => a - b)
+        console.log(sortArr);
+        const mid = Math.floor(n / 2)
+
+        if (n % 2 !== 0)  {
+            return sortArr[mid]
+        } else {
+            return (sortArr[Math.floor((n-1) / 2)] + sortArr[n / 2]) / 2
+            // (sortArr[Math.floor(3.5)]            + sortArr[4] ) / 2
+            // (sortArr[3]                  +         sortArr[4] ) / 2
+            // (4                           +                   5) / 2
+            // (9) / 2
+            // 4.5
+        }
+        
+    }
+    findMedian(arrs, n)
+    console.log(findMedian(arrs, n));
+    firstMedianNode.innerHTML = parseFloat(findMedian(arrs, n))
+
+    const median = ar => {
+        const mid = Math.floor(ar.length / 2)
+        const nums = [...ar].sort((a, b) => a - b);
+        return ar.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+    };
+    console.log(median([5, 6, 50, 1, -5]));
+    console.log(median([1, 2, 3, 4, 5, 6]));
+    thirdMedianNode.innerHTML = median([5, 6, 50, 1, -5])
+    secondMedianNode.innerHTML = median([1, 2, 3, 4, 5, 6])
+
+
+
+    // TEST 2
+
+
+</script>
+
+
+</html>

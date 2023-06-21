@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miniMax Logic</title>
+</head>
+<body>
+    
+
+    <h1>
+        Welcome to front end logic<br />
+        Check Console!!!
+    </h1>
+
+    <div class="answers">
+        <p>
+            Sum of numbers excluding the biggest number: <span class="positive"></span>
+        </p>
+        <br />
+        <br />
+        <p>
+            Sum of numbers excluding the smallest number: <span class="negative"></span>
+        </p>
+        
+        
+    </div>
+
+</body>
+
+
+<script>
+
+    const pos = document.querySelector('.positive');
+    const neg = document.querySelector('.negative');
+
+    ar = [1, 2, 3, 4, 5]
+    function miniMaxi(ar) {
+        const sumOfArray = ar.reduce((a, b) => {
+            return a + b
+        })
+        let miniNumbers = sumOfArray - Math.max(...ar)
+        let maxiNumbers = sumOfArray - Math.min(...ar)
+        console.log(miniNumbers, maxiNumbers);
+    }
+    miniMaxi(ar)
+
+    const array1 = [1, 2, 3, 4];
+    let totalOfArray = array1.reduce((a, b) =>{
+        return a + b
+    })
+    console.log(totalOfArray);
+    const small = totalOfArray - Math.max(...array1)
+    const big = totalOfArray - Math.min(...array1)
+    // console.log(sumArray);
+    console.log(small, big);
+
+
+</script>
+</html>

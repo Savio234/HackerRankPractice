@@ -1,0 +1,1 @@
+# This is a repository to show my daily progress report on attempting HackerRank logic problems. It consists of a series of questions at various levels ranging from easy, medium and hard. It is followed by occasional mock tests. This would help prep for an interview and improve on frontend logic

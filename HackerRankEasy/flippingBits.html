@@ -23,6 +23,8 @@
 <script>
 
     const n = 2147483647
+    const m = 4294967294
+    const v = 4294967295
 
     function flippingBits(n) {
         // Write your code here
@@ -34,6 +36,15 @@
     }
     flippingBits(n)
     console.log(flippingBits(n));
+
+    function binaryToTen(n) {
+        const convertTo = n.toString(2)
+        return convertTo
+    }
+    binaryToTen(n)
+    console.log(binaryToTen(n));
+    console.log(binaryToTen(m));
+    console.log(binaryToTen(v));
 
 
 </script>

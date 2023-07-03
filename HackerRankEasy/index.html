@@ -61,8 +61,10 @@
     console.log(n);
     function findMedian(arrs, n) {
         const sortArr = arrs.sort((a, b) => a - b)
+        // .sort arranges an array in ascending order(a - b) or descending order(b - a)
         console.log(sortArr);
         const mid = Math.floor(n / 2)
+        // .floor rounds down a decimal e.g 5.9 = 5
 
         if (n % 2 !== 0)  {
             return sortArr[mid]

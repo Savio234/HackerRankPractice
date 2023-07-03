@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converting Bases</title>
+</head>
+<body>
+    
+    <h3>
+        Question: <br> You will be given a list of 32 bit unsigned integers. Flip all the bits (1 -> 0 and 0 -> 1 ) and return the result as an unsigned integer.
+    </h3>
+
+    <h5>
+        Solution: <span><p>Check console for answers too and inspect script for solutions!</p></span>
+    </h5>
+
+</body>
+
+
+
+<script>
+
+    const n = 2147483647
+
+    function flippingBits(n) {
+        // Write your code here
+        const binary = n.toString(2);
+        const paddedBinary = binary.padStart(32, '0');
+        const flippedBinary = paddedBinary.replace(/0|1/g, (bit) => bit === '0'? '1' : '0');
+        const flippedDecimelNumber = parseInt(flippedBinary, 2);
+        return flippedDecimelNumber;
+    }
+    flippingBits(n)
+    console.log(flippingBits(n));
+
+
+</script>
+</html>

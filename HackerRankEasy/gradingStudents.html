@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading Students</title>
+</head>
+<body>
+    
+    <h2>
+        Question: <br> HackerLand University has the following grading policy:<br />
+
+        <ul>
+            <li>Every student receives a grade in the inclusive range from 0 to 100.</li>
+            <li>Any grade less than 40 is a failing grade.</li><br />
+                
+            Sam is a professor at the university and likes to round each student's grade according to these rules:
+            
+            <li>If the difference between the grade and the next multiple of 5 is less than 3, round grade up to the next multiple of 5.</li>
+            <li>If the value of grade is less than 38, no rounding occurs as the result will still be a failing grade.</li>
+        </ul>
+    </h2>
+
+    <h3>
+        Solution: <span><p>Check console for answers too and inspect script for solutions!</p></span>
+    </h3>
+</body>
+
+
+
+
+<script>
+
+    const grades = [4, 73 ,67, 38, 33, 43, 83]
+
+    function gradeStudents(grades) {
+        const upDatedGrades = [];
+        for (let i = 0; i < grades.length; i++) {
+            if (!(grades[i] % 5 === 0) && (grades[i] >= 38)) {
+                const roundedOff = Math.ceil(grades[i] / 5) * 5;
+                const differenceLessThan3 = (roundedOff - grades[i]) < 3;
+                if (differenceLessThan3) {
+                    upDatedGrades.push(roundedOff);
+                } else {
+                    upDatedGrades.push(grades[i]);
+                }
+            } else {
+                upDatedGrades.push(grades[i]);
+            }
+        }
+        return upDatedGrades;
+    }
+    gradeStudents(grades)
+    console.log(gradeStudents(grades));
+
+    function gradeStudent(grades) {
+        let result = [];
+        for (let grade of grades) {
+            if (grade >= 38) {
+                let nextMultiple = Math.ceil(grade / 5) * 5;
+                if (nextMultiple - grade < 3) {
+                    result.push(nextMultiple);
+                } else {
+                    result.push(grade);
+                }
+            } else {
+                result.push(grade);
+            }
+        }
+        return result;
+    }
+    gradeStudent(grades)
+    console.log(gradeStudent(grades));
+
+    function gradStudents(grades) {
+        return grades.map((item) => {
+            if(item >= 38 && item % 5 >= 3) {
+                return item + (5 - item % 5);
+            }
+            return item
+        })
+    }
+    gradStudents(grades)
+    console.log(gradStudents(grades));
+
+</script>
+</html>
